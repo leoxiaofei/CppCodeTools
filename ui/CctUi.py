@@ -406,3 +406,47 @@ class frmXmlPicker ( wx.Panel ):
 		event.Skip()
 	
 
+###########################################################################
+## Class frmJsonPicker
+###########################################################################
+
+class frmJsonPicker ( wx.Panel ):
+	
+	def __init__( self, parent ):
+		wx.Panel.__init__ ( self, parent, id = wx.ID_ANY, pos = wx.DefaultPosition, size = wx.Size( 500,300 ), style = wx.TAB_TRAVERSAL )
+		
+		bSizerMain = wx.BoxSizer( wx.HORIZONTAL )
+		
+		sbSizerJson = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, u"Json" ), wx.VERTICAL )
+		
+		self.edtJson = wx.TextCtrl( sbSizerJson.GetStaticBox(), wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE )
+		sbSizerJson.Add( self.edtJson, 1, wx.ALL|wx.EXPAND, 5 )
+		
+		
+		bSizerMain.Add( sbSizerJson, 1, wx.EXPAND, 5 )
+		
+		sbSizerResult = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, u"Result" ), wx.VERTICAL )
+		
+		self.edtRes = wx.TextCtrl( sbSizerResult.GetStaticBox(), wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE )
+		sbSizerResult.Add( self.edtRes, 1, wx.ALL|wx.EXPAND, 5 )
+		
+		
+		bSizerMain.Add( sbSizerResult, 1, wx.EXPAND, 5 )
+		
+		
+		self.SetSizer( bSizerMain )
+		self.Layout()
+		
+		# Connect Events
+		self.edtJson.Bind( wx.EVT_TEXT, self.OnTextJson )
+	
+	def __del__( self ):
+		# Disconnect Events
+		self.edtJson.Unbind( wx.EVT_TEXT, handler = self.OnTextJson )
+	
+	
+	# Virtual event handlers, overide them in your derived class
+	def OnTextJson( self, event ):
+		event.Skip()
+	
+

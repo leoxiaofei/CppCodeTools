@@ -117,7 +117,7 @@ class CCTNameToClass(ui.CctUi.frmNameToClass):
 
         listDes.append(u"\n")
 
-        listDes.append(u"#endif // " + strDefine)
+        listDes.append(u"#endif // " + strDefine + u"\n")
 
         return "\n".join(listDes)
 
@@ -153,6 +153,6 @@ class CCTNameToClass(ui.CctUi.frmNameToClass):
 
         listDes.append(u"%s::~%s()" % (param.strClassName, param.strClassName))
         listDes.append(u"{")
-        listDes.append(u"}")
+        listDes.append(u"}\n")
 
         return "\n".join(listDes)
