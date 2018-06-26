@@ -14,10 +14,10 @@ class QuotationHandler(ContentHandler):
         self.listAttr = []
 
     def startDocument(self):
-        print '--- Begin Document ---'
+        print ('--- Begin Document ---')
 
     def endDocument(self):
-        print '--- End Document ---'
+        print ('--- End Document ---')
 
     def startElement(self, name, attrs):
         if name not in self.listName:
