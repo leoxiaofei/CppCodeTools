@@ -8,6 +8,7 @@ from core.CctNameToClass import *
 from core.CctQtClassToHeader import *
 from core.CctXmlPicker import *
 from core.CctJsonPicker import *
+from core.CctDeclToMen import *
 from res.images import *
 
 
@@ -34,6 +35,8 @@ class CCTMain(frmCppCodeTools):
         self.lbPage.AddPage(self.frmXP, u"XmlPicker", False)
         self.frmJP = CCTJsonPicker(self.lbPage)
         self.lbPage.AddPage(self.frmJP, u"JsonPicker", False)
+        self.frmDTM = CCTDeclToMen(self.lbPage)
+        self.lbPage.AddPage(self.frmDTM, u"DeclToMen", False)
 
     def OnEdtHeaderMiddleUp(self, event):
         win = wx.Window.FindFocus()
